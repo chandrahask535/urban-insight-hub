@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Encroachment from "./pages/Encroachment";
 import HeatIslands from "./pages/HeatIslands";
 import Recommendations from "./pages/Recommendations";
+import FloodPrediction from "./pages/FloodPrediction";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/encroachment" element={<Encroachment />} />
           <Route path="/heat-islands" element={<HeatIslands />} />
           <Route path="/recommendations" element={<Recommendations />} />
+          <Route path="/flood-prediction" element={<FloodPrediction />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
