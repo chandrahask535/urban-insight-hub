@@ -1,12 +1,10 @@
 
-import { FadeIn } from '@/components/animations/FadeIn';
 import Navigation from '@/components/Navigation';
-import MapInterface from '@/components/MapInterface';
-import Dashboard from '@/components/Dashboard';
-import AnalysisPanel from '@/components/AnalysisPanel';
+import { FadeIn } from '@/components/animations/FadeIn';
 import RecommendationsPanel from '@/components/RecommendationsPanel';
+import { Chip } from '@/components/ui/Chip';
 
-const Index = () => {
+const Recommendations = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-secondary/50 to-background">
       <Navigation />
@@ -14,16 +12,14 @@ const Index = () => {
       <main className="flex-1 pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="space-y-12">
           <FadeIn>
-            <MapInterface />
+            <div className="space-y-2">
+              <Chip variant="eco" className="mb-2">AI Planning</Chip>
+              <h1 className="text-3xl font-bold tracking-tight">Urban Planning Recommendations</h1>
+              <p className="text-muted-foreground max-w-2xl">
+                AI-powered suggestions for sustainable urban development, encroachment prevention, and heat island mitigation.
+              </p>
+            </div>
           </FadeIn>
-          
-          <section>
-            <Dashboard />
-          </section>
-          
-          <section>
-            <AnalysisPanel />
-          </section>
           
           <section>
             <RecommendationsPanel />
@@ -42,4 +38,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Recommendations;

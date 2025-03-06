@@ -1,12 +1,11 @@
 
-import { FadeIn } from '@/components/animations/FadeIn';
 import Navigation from '@/components/Navigation';
-import MapInterface from '@/components/MapInterface';
-import Dashboard from '@/components/Dashboard';
+import { FadeIn } from '@/components/animations/FadeIn';
 import AnalysisPanel from '@/components/AnalysisPanel';
-import RecommendationsPanel from '@/components/RecommendationsPanel';
+import MapInterface from '@/components/MapInterface';
+import { Chip } from '@/components/ui/Chip';
 
-const Index = () => {
+const Encroachment = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-secondary/50 to-background">
       <Navigation />
@@ -14,19 +13,21 @@ const Index = () => {
       <main className="flex-1 pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="space-y-12">
           <FadeIn>
+            <div className="space-y-2">
+              <Chip variant="heat" className="mb-2">Detailed View</Chip>
+              <h1 className="text-3xl font-bold tracking-tight">Land Encroachment Analysis</h1>
+              <p className="text-muted-foreground max-w-2xl">
+                Monitor illegal land use changes, track encroachment patterns, and identify high-risk areas.
+              </p>
+            </div>
+          </FadeIn>
+          
+          <FadeIn delay="short">
             <MapInterface />
           </FadeIn>
           
           <section>
-            <Dashboard />
-          </section>
-          
-          <section>
             <AnalysisPanel />
-          </section>
-          
-          <section>
-            <RecommendationsPanel />
           </section>
         </div>
       </main>
@@ -42,4 +43,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Encroachment;
