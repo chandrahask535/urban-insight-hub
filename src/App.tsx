@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import Bengaluru from "./pages/Bengaluru";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/heat-islands" element={<HeatIslands />} />
             <Route path="/recommendations" element={<Recommendations />} />
             <Route path="/flood-prediction" element={<FloodPrediction />} />
+            <Route path="/bengaluru" element={<Bengaluru />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
