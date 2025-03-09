@@ -27,6 +27,7 @@ const Navigation = () => {
     { name: 'Bengaluru', href: '/bengaluru' },
   ];
 
+  // Using NavLink component which properly integrates with React Router
   const NavLinks = () => (
     <>
       {links.map((link) => (
@@ -48,6 +49,7 @@ const Navigation = () => {
     </>
   );
 
+  // Mobile navigation with proper Link usage
   const renderMobileNavigation = () => (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
@@ -96,6 +98,7 @@ const Navigation = () => {
     </Sheet>
   );
 
+  // Desktop navigation with proper Link usage
   const renderDesktopNavigation = () => (
     <div className="hidden md:flex items-center space-x-1">
       <NavLinks />

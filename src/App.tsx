@@ -30,26 +30,35 @@ const RouteTracker = () => {
   return null;
 };
 
+// Wrap the routes in a component to allow for useLocation hook
+const AppRoutes = () => {
+  return (
+    <>
+      <RouteTracker />
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/encroachment" element={<Encroachment />} />
+        <Route path="/heat-islands" element={<HeatIslands />} />
+        <Route path="/recommendations" element={<Recommendations />} />
+        <Route path="/flood-prediction" element={<FloodPrediction />} />
+        <Route path="/bengaluru" element={<Bengaluru />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
         <BrowserRouter>
-          <RouteTracker />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/encroachment" element={<Encroachment />} />
-            <Route path="/heat-islands" element={<HeatIslands />} />
-            <Route path="/recommendations" element={<Recommendations />} />
-            <Route path="/flood-prediction" element={<FloodPrediction />} />
-            <Route path="/bengaluru" element={<Bengaluru />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Toaster />
+          <Sonner />
+          <AppRoutes />
         </BrowserRouter>
       </TooltipProvider>
     </AuthProvider>
