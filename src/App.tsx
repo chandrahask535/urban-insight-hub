@@ -3,8 +3,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
+import { useEffect } from "react";
 import Index from "./pages/Index";
 import Encroachment from "./pages/Encroachment";
 import HeatIslands from "./pages/HeatIslands";
@@ -18,6 +19,17 @@ import Bengaluru from "./pages/Bengaluru";
 
 const queryClient = new QueryClient();
 
+// Route tracker component for debugging
+const RouteTracker = () => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    console.log('Route changed:', location.pathname);
+  }, [location]);
+  
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
@@ -25,6 +37,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <RouteTracker />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/encroachment" element={<Encroachment />} />

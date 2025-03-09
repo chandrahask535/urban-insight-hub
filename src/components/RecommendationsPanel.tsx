@@ -2,8 +2,15 @@
 import { FadeIn } from './animations/FadeIn';
 import { Chip } from './ui/Chip';
 import { LightbulbIcon, CheckCircle, CircleEllipsis, TreePine, Building, AreaChart } from 'lucide-react';
+import { useEffect } from 'react';
 
 const RecommendationsPanel = () => {
+  // Add debugging to track component lifecycle
+  useEffect(() => {
+    console.log('RecommendationsPanel mounted');
+    return () => console.log('RecommendationsPanel unmounted');
+  }, []);
+
   return (
     <div className="space-y-6">
       <FadeIn>

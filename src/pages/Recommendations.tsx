@@ -3,8 +3,15 @@ import Navigation from '@/components/Navigation';
 import { FadeIn } from '@/components/animations/FadeIn';
 import RecommendationsPanel from '@/components/RecommendationsPanel';
 import { Chip } from '@/components/ui/Chip';
+import { useEffect } from 'react';
 
 const Recommendations = () => {
+  // Add debugging to track component lifecycle
+  useEffect(() => {
+    console.log('Recommendations page mounted');
+    return () => console.log('Recommendations page unmounted');
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-secondary/50 to-background">
       <Navigation />
@@ -21,7 +28,7 @@ const Recommendations = () => {
             </div>
           </FadeIn>
           
-          <section>
+          <section className="w-full">
             <RecommendationsPanel />
           </section>
         </div>
